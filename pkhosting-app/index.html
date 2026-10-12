@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>PKHosting - Web Hosting Pakistan</title>
+<meta name="description" content="PKHosting app: shared hosting, VPS, dedicated servers and domain registration in Pakistan. 16+ years of local support.">
+<meta name="theme-color" content="#0a1f3d">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand" id="brandHome" style="cursor:pointer">
+      <div class="logo">PK</div>
+      <div><span class="name">PKHosting</span><span class="tag">Hosting Pakistan since 2000</span></div>
+    </div>
+    <button class="cartbtn" id="cartBtn" aria-label="Open cart">Cart <span class="badge" id="cartBadge" style="display:none">0</span></button>
+  </header>
+
+  <main id="views">
+
+    <!-- HOME -->
+    <section class="view" data-view="home">
+      <div class="hero">
+        <h1>Fast, reliable web hosting in Pakistan</h1>
+        <p>Shared hosting from Rs 699/mo, free SSL, daily backups and local support that actually picks up the phone.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" data-go="hosting">View Plans</button>
+          <button class="btn btn-outline" data-go="domains">Search Domains</button>
+        </div>
+      </div>
+
+      <h3 class="stitle">Find your domain</h3>
+      <div class="card">
+        <div class="searchrow">
+          <input type="text" id="homeDomainInput" placeholder="yourbusiness" autocapitalize="off" spellcheck="false" aria-label="Domain name">
+          <button class="btn btn-navy btn-sm" id="homeDomainBtn" style="padding:12px 16px">Search</button>
+        </div>
+        <p class="hint">Try a name and we will check .com, .pk, .com.pk, .net and .org availability.</p>
+      </div>
+
+      <h3 class="stitle">Popular right now</h3>
+      <div class="card">
+        <div class="kv"><span class="k">Business Hosting (most popular)</span><span class="v">Rs 1,999/mo</span></div>
+        <div class="kv"><span class="k">.com domain registration</span><span class="v">Rs 3,999/yr</span></div>
+        <div class="kv"><span class="k">.pk domain (2 years)</span><span class="v">Rs 4,699</span></div>
+        <div class="kv"><span class="k">VPS Starter</span><span class="v">Rs 4,999/mo</span></div>
+      </div>
+
+      <h3 class="stitle">Explore</h3>
+      <div class="qlinks">
+        <div class="qlink" data-go="hosting"><span class="ic">🌐</span><span class="t">Hosting</span></div>
+        <div class="qlink" data-go="domains"><span class="ic">🔍</span><span class="t">Domains</span></div>
+        <div class="qlink" data-go="servers"><span class="ic">🖥️</span><span class="t">VPS &amp; Servers</span></div>
+        <div class="qlink" data-go="support"><span class="ic">💬</span><span class="t">Support</span></div>
+      </div>
+
+      <h3 class="stitle">Why PKHosting</h3>
+      <div class="badges">
+        <div class="badge-card"><div class="ic">🏆</div><div class="t">16+ Years</div><div class="s">Serving Pakistan since 2000</div></div>
+        <div class="badge-card"><div class="ic">🔒</div><div class="t">Free SSL</div><div class="s">On every hosting plan</div></div>
+        <div class="badge-card"><div class="ic">💾</div><div class="t">Daily Backups</div><div class="s">Automatic, kept 7 days</div></div>
+        <div class="badge-card"><div class="ic">🚚</div><div class="t">Free Migration</div><div class="s">We move your site for you</div></div>
+      </div>
+      <p class="footer-note">231-B Main Boulevard, Phase 8 DHA, Lahore<br>(042) 35692952 · support@pkhosting.com</p>
+    </section>
+
+    <!-- HOSTING -->
+    <section class="view" data-view="hosting">
+      <h2 class="vtitle">Web Hosting Plans</h2>
+      <p class="lead">All plans include free SSL, daily backups, 1-click WordPress and free migration.</p>
+      <div class="toggle" role="tablist" aria-label="Billing period">
+        <button id="billMonthly" class="on">Monthly</button>
+        <button id="billAnnual">Annual <span style="color:var(--green)">(2 months free)</span></button>
+      </div>
+      <div id="planList"></div>
+      <div class="card">
+        <h3 class="stitle" style="margin-top:0">Every plan includes</h3>
+        <div class="kv"><span class="k">Free SSL certificate</span><span class="v">✓</span></div>
+        <div class="kv"><span class="k">Daily backups (7-day retention)</span><span class="v">✓</span></div>
+        <div class="kv"><span class="k">1-click WordPress install</span><span class="v">✓</span></div>
+        <div class="kv"><span class="k">Free website migration</span><span class="v">✓</span></div>
+        <div class="kv"><span class="k">99.9% uptime commitment</span><span class="v">✓</span></div>
+      </div>
+    </section>
+
+    <!-- DOMAINS -->
+    <section class="view" data-view="domains">
+      <h2 class="vtitle">Domain Names</h2>
+      <p class="lead">Search and register your perfect domain in minutes.</p>
+      <div class="card">
+        <div class="searchrow">
+          <input type="text" id="domainInput" placeholder="yourbusiness" autocapitalize="off" spellcheck="false" aria-label="Domain name to check">
+          <button class="btn btn-navy btn-sm" id="domainBtn" style="padding:12px 16px">Check</button>
+        </div>
+        <p class="hint">Type just the name, without the extension. We check 5 popular TLDs.</p>
+      </div>
+      <div class="card" id="domainResults" style="display:none">
+        <h3 class="stitle" style="margin-top:0">Availability</h3>
+        <div id="domainResultList"></div>
+      </div>
+      <h3 class="stitle">Registration prices</h3>
+      <div class="card" id="tldList"></div>
+      <div class="notice">.pk, .com.pk, .org.pk and .net.pk are registered for 2-year terms through PKNIC.</div>
+    </section>
+
+    <!-- SERVERS -->
+    <section class="view" data-view="servers">
+      <h2 class="vtitle">VPS &amp; Dedicated Servers</h2>
+      <p class="lead">Full root access, NVMe storage and DDoS protection on every server.</p>
+      <h3 class="stitle">Virtual Private Servers</h3>
+      <div id="vpsList"></div>
+      <h3 class="stitle">Dedicated Servers</h3>
+      <div id="dedList"></div>
+      <div class="notice">All servers are billed monthly and can be cancelled anytime. Lahore-based support, Mon-Fri 9am-6pm PKT.</div>
+    </section>
+
+    <!-- MORE -->
+    <section class="view" data-view="more">
+      <h2 class="vtitle">More</h2>
+      <div class="menu" data-go="client"><span class="ic">👤</span><div><div class="t">Client Area</div><div class="s">Services, invoices &amp; tickets</div></div><span class="go">›</span></div>
+      <div class="menu" data-go="support"><span class="ic">💬</span><div><div class="t">Support</div><div class="s">FAQs, contact &amp; ticket status</div></div><span class="go">›</span></div>
+      <div class="menu" data-go="about"><span class="ic">🏢</span><div><div class="t">About PKHosting</div><div class="s">16+ years hosting Pakistan</div></div><span class="go">›</span></div>
+      <div class="menu" data-go="backup"><span class="ic">💾</span><div><div class="t">Backup Policy</div><div class="s">How your data is protected</div></div><span class="go">›</span></div>
+      <div class="menu" data-go="migration"><span class="ic">🚚</span><div><div class="t">Free Migration</div><div class="s">We move your site for free</div></div><span class="go">›</span></div>
+    </section>
+
+    <!-- CART -->
+    <section class="view" data-view="cart">
+      <button class="backbtn" data-go="home">‹ Back</button>
+      <h2 class="vtitle">Your Cart</h2>
+      <div id="cartBody"></div>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section class="view" data-view="checkout">
+      <button class="backbtn" id="checkoutBack">‹ Back</button>
+      <h2 class="vtitle">Checkout</h2>
+      <div class="steps" id="stepsBar">
+        <div class="step" data-s="1"><div class="dot">1</div>Review</div>
+        <div class="step" data-s="2"><div class="dot">2</div>Details</div>
+        <div class="step" data-s="3"><div class="dot">3</div>Payment</div>
+        <div class="step" data-s="4"><div class="dot">4</div>Done</div>
+      </div>
+      <div id="checkoutBody"></div>
+    </section>
+
+    <!-- CLIENT AREA -->
+    <section class="view" data-view="client">
+      <button class="backbtn" data-go="more">‹ Back</button>
+      <h2 class="vtitle">Client Area</h2>
+      <p class="lead">Welcome back, Demo User. This is a local demo of the client portal.</p>
+      <h3 class="stitle">My services</h3>
+      <div id="svcList"></div>
+      <h3 class="stitle">Invoices</h3>
+      <div id="invList"></div>
+      <h3 class="stitle">Support tickets</h3>
+      <div id="ticketList"></div>
+      <div class="card">
+        <h3 class="stitle" style="margin-top:0">Open a new ticket</h3>
+        <div class="field"><label for="tkSubject">Subject</label><input id="tkSubject" type="text" placeholder="e.g. Email not working"><div class="err">Please enter a subject.</div></div>
+        <div class="field"><label for="tkDept">Department</label><select id="tkDept"><option>Technical Support</option><option>Billing</option><option>Sales</option><option>Migration Help</option></select></div>
+        <div class="field"><label for="tkMsg">Message</label><textarea id="tkMsg" rows="4" placeholder="Describe your issue in detail"></textarea><div class="err">Please describe your issue.</div></div>
+        <button class="btn btn-primary btn-block" id="tkSubmit">Submit Ticket</button>
+        <p class="hint">Tickets are saved on this device only (demo).</p>
+      </div>
+      <h3 class="stitle">Profile</h3>
+      <div class="card">
+        <div class="field"><label for="pfName">Full name</label><input id="pfName" type="text"></div>
+        <div class="field"><label for="pfEmail">Email</label><input id="pfEmail" type="email"></div>
+        <div class="field"><label for="pfPhone">Phone</label><input id="pfPhone" type="tel" placeholder="03xx xxxxxxx"></div>
+        <button class="btn btn-navy btn-block" id="pfSave">Save Profile</button>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="view" data-view="support">
+      <button class="backbtn" data-go="more">‹ Back</button>
+      <h2 class="vtitle">Support</h2>
+      <h3 class="stitle">Frequently asked questions</h3>
+      <div class="card" id="faqList" style="padding-top:4px"></div>
+      <h3 class="stitle">Contact us</h3>
+      <div class="card">
+        <a class="contact-row" href="tel:+924235692952"><span class="ic">📞</span><div><div class="t">(042) 35692952</div><div class="s">Mon-Fri, 9am-6pm PKT</div></div></a>
+        <a class="contact-row" href="mailto:support@pkhosting.com"><span class="ic">✉️</span><div><div class="t">support@pkhosting.com</div><div class="s">We reply within a few hours</div></div></a>
+        <div class="contact-row"><span class="ic">💬</span><div><div class="t">Live chat</div><div class="s">Mon-Fri, 9am-6pm PKT, on pkhosting.com</div></div></div>
+        <div class="contact-row"><span class="ic">📍</span><div><div class="t">231-B Main Boulevard, Phase 8 DHA</div><div class="s">Lahore, Pakistan</div></div></div>
+      </div>
+      <button class="btn btn-primary btn-block" data-go="client" id="supportTicketBtn">Check my tickets</button>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="view" data-view="about">
+      <button class="backbtn" data-go="more">‹ Back</button>
+      <h2 class="vtitle">About PKHosting</h2>
+      <div class="card">
+        <p>PKHosting (pkhosting.com) is a Pakistan-based web hosting company that has been serving local businesses, developers and agencies since 2000, over 16 years of continuous operation.</p>
+        <p>We provide shared web hosting, VPS, dedicated servers, domain registration and SSL certificates, backed by support engineers in Lahore who understand the local market, local payment methods and PKNIC domain rules.</p>
+        <div class="kv"><span class="k">Head office</span><span class="v">231-B Main Boulevard, Phase 8 DHA, Lahore</span></div>
+        <div class="kv"><span class="k">Phone</span><span class="v">(042) 35692952</span></div>
+        <div class="kv"><span class="k">Email</span><span class="v">support@pkhosting.com</span></div>
+        <div class="kv"><span class="k">Support hours</span><span class="v">Mon-Fri, 9am-6pm PKT</span></div>
+      </div>
+    </section>
+
+    <!-- BACKUP -->
+    <section class="view" data-view="backup">
+      <button class="backbtn" data-go="more">‹ Back</button>
+      <h2 class="vtitle">Backup Policy</h2>
+      <div class="card">
+        <h3 class="stitle" style="margin-top:0">How your data is protected</h3>
+        <div class="kv"><span class="k">Backup frequency</span><span class="v">Daily (automatic)</span></div>
+        <div class="kv"><span class="k">Retention</span><span class="v">7 daily copies</span></div>
+        <div class="kv"><span class="k">What's included</span><span class="v">Files + databases</span></div>
+        <div class="kv"><span class="k">Restore requests</span><span class="v">Free via support ticket</span></div>
+        <p style="margin-top:12px">Backups run automatically every night on all shared hosting plans at no extra cost. If you ever need a file or a full account restored, open a support ticket and our team will restore it for you free of charge.</p>
+        <p>We still recommend keeping your own off-site copy of critical data. If you need longer retention or custom backup schedules, ask about our VPS backup add-ons.</p>
+      </div>
+    </section>
+
+    <!-- MIGRATION -->
+    <section class="view" data-view="migration">
+      <button class="backbtn" data-go="more">‹ Back</button>
+      <h2 class="vtitle">Free Migration</h2>
+      <div class="card">
+        <h3 class="stitle" style="margin-top:0">We move your website for free</h3>
+        <p>Switching from another host? Our engineers will migrate your website to PKHosting at no cost and with minimal downtime.</p>
+        <div class="kv"><span class="k">Cost</span><span class="v">100% free</span></div>
+        <div class="kv"><span class="k">Typical turnaround</span><span class="v">Within 24 hours</span></div>
+        <div class="kv"><span class="k">What's moved</span><span class="v">Files, databases, emails</span></div>
+        <div class="kv"><span class="k">Downtime</span><span class="v">Minimal, planned with you</span></div>
+        <p style="margin-top:12px"><strong>How it works:</strong></p>
+        <p>1. Order any hosting plan.<br>2. Open a ticket (or choose Migration Help) with your old host's cPanel login.<br>3. We copy everything over and verify the site works.<br>4. You point your domain to us, we confirm it's live.</p>
+        <button class="btn btn-primary btn-block" data-go="hosting">Choose a plan</button>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="tabbar" aria-label="Main navigation">
+    <button class="tab on" data-go="home"><span class="ic">🏠</span>Home</button>
+    <button class="tab" data-go="hosting"><span class="ic">🌐</span>Hosting</button>
+    <button class="tab" data-go="domains"><span class="ic">🔍</span>Domains</button>
+    <button class="tab" data-go="servers"><span class="ic">🖥️</span>Servers</button>
+    <button class="tab" data-go="more"><span class="ic">☰</span>More</button>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
